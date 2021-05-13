@@ -16,14 +16,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtN5: UILabel!
     @IBOutlet weak var txtN6: UILabel!
     
-    // Clearing all the numbers
-    @IBAction func btnClear(_ sender: Any) {
+    @IBOutlet weak var editMaxValue: UITextField!
+    
+    @IBOutlet weak var btnClearCheck: UIButton!
+    
+    override func viewDidLoad() {
         txtN1.text = "-"
         txtN2.text = "-"
         txtN3.text = "-"
         txtN4.text = "-"
         txtN5.text = "-"
         txtN6.text = "-"
+        
+        btnClearCheck.isEnabled = false
+        editMaxValue.keyboardType = .numberPad
+    }
+    
+    // Clearing all the numbers
+    @IBAction func btnClear(_ sender: Any) {
+        viewDidLoad().self
     }
     
     // Displaying all the random numbers
@@ -34,6 +45,8 @@ class ViewController: UIViewController {
         txtN4.text = "\(randomNumber())"
         txtN5.text = "\(randomNumber())"
         txtN6.text = "\(randomNumber())"
+        
+        btnClearCheck.isEnabled = true
     }
     
     // Generating the random numbers
@@ -43,7 +56,8 @@ class ViewController: UIViewController {
     }
     
     func randomNumber() -> Int {
-        let max: Int = 65
+        // By default, max is 100
+        let max: Int = Int(editMaxValue.text ?? "") ?? 100
         let random = randomInt(max: max)
         return random
     }
