@@ -3,7 +3,7 @@ Lab Test 01 for Mobile Application Development II
 
 * By default, the app displays random numbers from 1 to 100.
 * The user can specify the max value to be calculated by adding it to the text box.
-* The is an info page where it contains information about the app and developer.
+* There is an info page where it contains information about the app and developer.
 
 ## Demonstration
 
